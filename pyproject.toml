@@ -1,0 +1,23 @@
+[project]
+name = "github-to-post"
+version = "0.1.0"
+description = "Local Python ETL for evidence-backed GitHub repository analysis."
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+dependencies = []
+
+[project.scripts]
+github-to-post = "github_to_post.cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

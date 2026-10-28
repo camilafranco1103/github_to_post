@@ -31,7 +31,7 @@ Use GitHub Projects as the planning and progress board, owned by the personal Gi
 
 ## Build, Test, and Development Commands
 
-No application build system, package manifest, or test runner is configured yet. When adding one, document the standard setup, development, build, and test commands in the project README and keep the commands reproducible from the repository root. Use the project's checked-in scripts (for example, `pytest`) rather than undocumented local steps.
+The project uses uv with a committed uv.lock. Run `uv sync --locked` to install dependencies and `uv run --locked pytest` to run tests from the repository root. GitHub Actions runs the test suite for Python 3.12, 3.13, and 3.14 on pull requests to `dev` and pushes to `dev`.
 
 ## Coding Style & Naming Conventions
 
@@ -39,11 +39,22 @@ No language-specific formatter or lint configuration exists yet. Follow the conv
 
 ## Testing Guidelines
 
-There are no tests or coverage requirements yet. Add tests for new behavior and regressions as a test framework is introduced. Name test files consistently with that framework (for example, `test_<feature>.py`) and make sure the documented test command runs the relevant suite.
+Place Python tests under `tests/` using `test_<feature>.py` names. Add tests for new behavior and regressions, and keep the documented `uv run --locked pytest` command working.
 
 ## Commit & Pull Request Guidelines
 
-Git history is not available in this working directory, so no repository-specific commit convention can be inferred. Use short imperative commit subjects, such as `Add input validation`, and consider Conventional Commit prefixes when useful (for example, `fix: handle empty input`). Pull requests should explain the change and its motivation, list validation performed, link related issues, and include screenshots for user-visible changes.
+Use Conventional Commits for commit subjects. Pull request titles use the same format: `<type>(<scope>): <imperative summary>`, in English and at most 72 characters. Use a meaningful scope such as `bootstrap`, `extract`, or `export`; omit the scope only when the change spans the project. Allowed types include `feat`, `fix`, `docs`, `test`, `build`, `ci`, and `chore`.
+
+Every pull request must:
+
+- Link its GitHub Issue and name it in the description using `Closes #<issue-number>` when the PR completes that issue.
+- Be assigned to the person responsible for the implementation (the authenticated `gh` user by default).
+- Request at least one reviewer who is not the PR author. Use the repository's configured reviewer or CODEOWNERS where available. If no eligible reviewer is configured, ask the user to choose one before opening the PR; never list the author as their own reviewer.
+- Use the template in `.github/pull_request_template.md` and report validation accurately. The GitHub Actions checks for the PR must pass before merge.
+
+Never merge a pull request unless the user explicitly instructs you to merge that PR. Even with that instruction, merge only after every required test and check has completed successfully. A pending, failed, skipped, or unavailable required check means do not merge; report the result and wait for the user's next instruction. Passing checks alone never authorize a merge.
+
+GitHub does not allow PR authors to approve their own pull requests. See [requesting reviews](https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/requesting-a-pull-request-review) and [reviewing proposed changes](https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request).
 
 ## Security & Configuration
 
