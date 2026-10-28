@@ -21,6 +21,8 @@ The repository currently contains project guidance and installed agent skills, b
 
 Use GitHub Projects as the planning and progress board, owned by the personal GitHub account already configured in `gh` when the remote repository is initialized. Represent actionable work as GitHub Issues, break larger issues into sub-issues, and link implementation Pull Requests to their Issues. Use these initial Project status values: `Backlog`, `Ready`, `In Progress`, `In Review`, `Testing`, `Done`, and `Blocked`. Use Project automation to keep issue and pull request status current where appropriate.
 
+Every actionable Issue must use .github/ISSUE_TEMPLATE/work-item.yml. Add actionable work to the Project as its linked Issue; do not create a separate draft-card format. Use draft Project cards only for non-actionable planning notes that do not need acceptance criteria. Keep the Issue title concise and action-oriented.
+
 ## Branch & Deployment Workflow
 
 - Keep `dev` as the long-lived integration branch and keep it current with merged work.
