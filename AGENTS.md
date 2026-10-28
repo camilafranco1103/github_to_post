@@ -31,7 +31,7 @@ Use GitHub Projects as the planning and progress board, owned by the personal Gi
 
 ## Build, Test, and Development Commands
 
-No application build system, package manifest, or test runner is configured yet. When adding one, document the standard setup, development, build, and test commands in the project README and keep the commands reproducible from the repository root. Use the project's checked-in scripts (for example, `pytest`) rather than undocumented local steps.
+The project uses uv with a committed uv.lock. Run `uv sync --locked` to install dependencies and `uv run --locked pytest` to run tests from the repository root. GitHub Actions runs the test suite for Python 3.12, 3.13, and 3.14 on pull requests to `dev` and pushes to `dev`.
 
 ## Coding Style & Naming Conventions
 
@@ -39,7 +39,7 @@ No language-specific formatter or lint configuration exists yet. Follow the conv
 
 ## Testing Guidelines
 
-There are no tests or coverage requirements yet. Add tests for new behavior and regressions as a test framework is introduced. Name test files consistently with that framework (for example, `test_<feature>.py`) and make sure the documented test command runs the relevant suite.
+Place Python tests under `tests/` using `test_<feature>.py` names. Add tests for new behavior and regressions, and keep the documented `uv run --locked pytest` command working.
 
 ## Commit & Pull Request Guidelines
 
