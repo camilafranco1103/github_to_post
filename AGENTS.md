@@ -23,6 +23,10 @@ Use GitHub Projects as the planning and progress board, owned by the personal Gi
 
 When starting work on an Issue, immediately set both its Project Status and Workflow fields to In Progress before implementation begins. Update the fields as the Issue moves into review, testing, or completion.
 
+Every actionable Issue must use .github/ISSUE_TEMPLATE/work-item.yml. Add actionable work to the Project as its linked Issue; do not create a separate draft-card format. Use draft Project cards only for non-actionable planning notes that do not need acceptance criteria. Keep the Issue title concise and action-oriented.
+
+Checklist gate: A task may enter `In Progress` when it is taken, but it must not move to any later Workflow state (`In Review`, `Testing`, or `Done`) while any required checklist item is unchecked, missing, or unverified. Mark a checkbox complete only after observing evidence that its criterion is satisfied. Set Project `Status` to `Done` only when the full checklist and required CI checks pass. Keep the current state while work remains, or use `Blocked` when the task is genuinely blocked. Project cards are linked Issues and cannot bypass this gate.
+
 ## Branch & Deployment Workflow
 
 - Keep `dev` as the long-lived integration branch and keep it current with merged work.

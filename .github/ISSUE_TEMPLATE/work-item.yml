@@ -1,0 +1,75 @@
+name: Work item
+description: Create a consistent issue for work tracked in GitHub Projects.
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Use this form for features, bugs, improvements, documentation, and maintenance.
+        Actionable Project cards are linked Issues created with this form.
+
+  - type: dropdown
+    id: work_type
+    attributes:
+      label: Work type
+      options:
+        - Feature
+        - Bug
+        - Improvement
+        - Documentation
+        - Maintenance
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: State the outcome and why it matters.
+      placeholder: What should be true when this work is complete?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Describe current behavior, relevant decisions, and constraints.
+      placeholder: Include concrete examples or links when available.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: List the expected work and any explicit exclusions.
+      placeholder: Keep this bounded to one reviewable outcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: Write observable conditions, one checkbox per criterion. Keep checks open until evidence confirms completion; Workflow cannot advance while any criterion remains unchecked.
+      placeholder: Use one checkbox per condition, for example: - [ ] The expected output is produced.
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Link blocking or prerequisite issues. Write "None" when there are no dependencies.
+      placeholder: Related or blocking issues
+    validations:
+      required: true
+
+  - type: textarea
+    id: deferred
+    attributes:
+      label: Deferred or out of scope
+      description: Record related work that should not be included in this issue. Write "None" when empty.
+      placeholder: Work to consider separately
+    validations:
+      required: true
