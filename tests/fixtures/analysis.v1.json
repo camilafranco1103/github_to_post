@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "repository": {
+    "owner": "coin-or",
+    "name": "pulp",
+    "url": "https://github.com/coin-or/pulp"
+  },
+  "snapshot": {
+    "ref": "refs/tags/3.3.2",
+    "commit_sha": "0123456789abcdef0123456789abcdef01234567"
+  },
+  "analyzed_at": "2026-10-28T12:00:00Z",
+  "technologies": [
+    {
+      "claim_type": "observed",
+      "category": "language",
+      "name": "Python",
+      "version": null,
+      "evidence_ids": ["evidence-python"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence-python",
+      "source_path": "pyproject.toml",
+      "fact": "The project declares Python package metadata.",
+      "provenance": {
+        "extractor": "pyproject-toml",
+        "extractor_version": "1",
+        "method": "parse",
+        "extracted_at": "2026-10-28T12:00:00Z"
+      }
+    }
+  ],
+  "descriptions": [
+    {
+      "claim_type": "inferred",
+      "text": "PuLP is a Python optimization project.",
+      "evidence_ids": ["evidence-python"],
+      "generated_at": "2026-10-28T12:00:00Z",
+      "provider": null,
+      "model": null
+    }
+  ],
+  "export": {
+    "producer_version": "0.1.0",
+    "created_at": "2026-10-28T12:00:00Z",
+    "formats": ["json"]
+  }
+}
