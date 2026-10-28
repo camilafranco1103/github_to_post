@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-The repository currently contains project guidance and installed agent skills, but no application code. As the project grows, keep application code in a clearly named source directory (such as `src/`), automated checks in `tests/` or alongside the modules they cover, and static files in `assets/`. Group related features together and avoid placing generated output or local secrets in source control.
+Application code lives in `src/github_to_post/`, automated checks in `tests/`, representative data in `tests/fixtures/`, and design documentation in `docs/`. Keep generated output and local secrets out of source control.
 
 ## Product Scope & Data Flow
 
@@ -21,7 +21,11 @@ The repository currently contains project guidance and installed agent skills, b
 
 Use GitHub Projects as the planning and progress board, owned by the personal GitHub account already configured in `gh` when the remote repository is initialized. Represent actionable work as GitHub Issues, break larger issues into sub-issues, and link implementation Pull Requests to their Issues. Use these initial Project status values: `Backlog`, `Ready`, `In Progress`, `In Review`, `Testing`, `Done`, and `Blocked`. Use Project automation to keep issue and pull request status current where appropriate.
 
+When starting work on an Issue, immediately set both its Project Status and Workflow fields to In Progress before implementation begins. Update the fields as the Issue moves into review, testing, or completion.
+
 Every actionable Issue must use .github/ISSUE_TEMPLATE/work-item.yml. Add actionable work to the Project as its linked Issue; do not create a separate draft-card format. Use draft Project cards only for non-actionable planning notes that do not need acceptance criteria. Keep the Issue title concise and action-oriented.
+
+Checklist gate: A task may enter `In Progress` when it is taken, but it must not move to any later Workflow state (`In Review`, `Testing`, or `Done`) while any required checklist item is unchecked, missing, or unverified. Mark a checkbox complete only after observing evidence that its criterion is satisfied. Set Project `Status` to `Done` only when the full checklist and required CI checks pass. Keep the current state while work remains, or use `Blocked` when the task is genuinely blocked. Project cards are linked Issues and cannot bypass this gate.
 
 ## Branch & Deployment Workflow
 

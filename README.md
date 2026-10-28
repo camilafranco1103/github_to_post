@@ -50,3 +50,6 @@ Run the test suite locally with the locked development environment:
     uv run --locked pytest
 
 GitHub Actions runs the same test command for Python 3.12, 3.13, and 3.14 on pull requests targeting `dev` and pushes to `dev`.
+## Canonical analysis schema
+
+The versioned Pydantic models in `github_to_post.schemas` define the canonical analysis document. See [the schema v1 contract](docs/analysis-schema.md) for fields, evidence traceability, and compatibility rules. Validate serialized documents with `AnalysisDocument.model_validate_json(...)`.
